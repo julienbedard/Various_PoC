@@ -1,0 +1,11 @@
+--------------------------
+Cleartext user/password in colorado ftp
+----------------------------------------------
+Affected versions:  
+			- Prime Edition (Build 6)
+		    - Beta Edition (Build 1) 
+
+The configuration file for coloradoftp is affected by a misconfiguration
+the ftp user and password is in cleartext.
+
+where: ./conf/xmlftpuser.xml

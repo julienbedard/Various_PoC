@@ -1,0 +1,32 @@
+HasOffers Improper Cookie Reusing (credential bypass)
+
+Remote:	     Yes
+Local:	     No
+Vulnerable:  affiliatecashpile.com (probably others sites where the script is installed)
+Impact:      4/5
+
+Affiliatecashpile mobile is vulnerable to a credential bypass timing attack when a valid API Key is called from a browser
+and then log into the login interface.
+A malicious attacker when have found a valid API Key can use it to bypass the credential of this API Key user and change
+everything on the account including payment request made into his bank account or paypal, dening the real users to get
+their earnings.
+
+The api key mobile interface when attacker reach a valid api key page, pass the login cookie into the browser.
+The attacker only have to move to the login page and enter his own credential then the login interface will
+redirect it into the phished account.
+
+
+Workaround: The attacker need 2 things to be able to log into a valid user.
+            1) A valid user acount for himself (with valid login / password)
+            2) A valid phished or bruteforced API Key
+
+            Only a browser is necessery to abuse of this hole, attacker go to the page with api key:
+            http://publisher.affiliatecashpile.com/stats/stats.json?api_key=ENTERTHEAPIKEYHERE&start_date=2010-06-01&end_date=2011-07-02
+            Replace the ENTERTHEAPIKEYHERE by the stolen API Key. Then go into affiliatecashpile.com and enter his valid credentials.
+            Instead of getting logged with his own credentials he will have access to the account from the previous API Key viewed.
+            The first cookie is ovewriting the second wich let the attacker use his own credentials.
+
+Solution:   For the moment there's no solution. We recommend to disable the api key interface once it has been fixed.
+
+
+Credit:     Julien Bédard (K-OS SecLab)
